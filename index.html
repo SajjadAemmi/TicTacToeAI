@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AI Tic Tac Toe</title>
+
+        <link rel="stylesheet" href="css/style.css" type="text/css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="js/jquery.min.js"></script>
+
+        <meta name="description" content="Artificial Intelligence Tic Tac Toe Game">
+
+        <meta property="og:title" content="AI Tic Tac Toe" />
+        <meta property="og:site_name" content="Site name"/>
+        <meta property="og:description" content="Artificial Intelligence Tic Tac Toe Game" />
+        <meta property="og:image" content="tictactoe.png" />
+
+        <link rel="shortcut icon" type="image/png" href="tictactoe.png"/>
+        <link rel="icon" href="tictactoe.ico">
+        <link rel='shortcut icon' type='image/x-icon' href='tictactoe.ico' />
+
+    </head>
+    <body>
+        <div class="video-container">
+            <img src="background.jpg">
+        </div>
+        <div class="container" id="container">
+            <div class="main">
+                <header>
+                    <h1>AI Tic Tac Toe</h1>
+                </header>
+                <div class="game-panel">
+
+                    <ul id="board">
+                        <li id="spot1"> </li>
+                        <li id="spot2"> </li>
+                        <li id="spot3"> </li>
+                        <li id="spot4"> </li>
+                        <li id="spot5"> </li>
+                        <li id="spot6"> </li>
+                        <li id="spot7"> </li>
+                        <li id="spot8"> </li>
+                        <li id="spot9"> </li>
+                    </ul>
+                </div>
+                <div class="score-board">
+                    You: <b id="you">0</b>&nbsp;&nbsp; | &nbsp;&nbsp; Draws: <b id="draws">0</b>&nbsp;&nbsp; |&nbsp;&nbsp; AI: <b id="cpu">0</b>
+                </div>
+                <button id="reset">Reset</button>
+
+                <div class="score-board">
+
+                    <label class="radio-title">
+                        <input type="radio" value="1" name="level"> <span> Dumb computer </span>
+                    </label>
+
+                    <label class="radio-title">
+                        <input type="radio" value="2" name="level" checked> <span> Normal </span>
+                    </label>
+
+                    <label class="radio-title">
+                        <input type="radio" value="3" name="level"> <span> AI never loses </span>
+                    </label>   
+                </div>
+                <footer>
+                    <hr>
+                    <p class="designer"> Sajjad Aemmi | 2017 </p>
+                </footer>
+            </div>
+        </div>
+
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <p id="modal_message"></p>
+            </div>
+
+        </div>
+
+        <script src="js/script.js"></script>
+    </body>
+</html>
