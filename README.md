@@ -1,6 +1,6 @@
-# AI-TicTacToe
+# TicTacToe-AI
 Artificial Intelligence TicTacToe with JavaScript
 
 
 # Try it
-https://sajjadaemmi.github.io/AITicTacToe/
+https://sajjadaemmi.github.io/TicTacToe-AI/
