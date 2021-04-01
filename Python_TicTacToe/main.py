@@ -1,0 +1,143 @@
+import math
+
+ply = "X"
+winner = None
+
+def isGoal(state):
+
+    for i in range(3):
+        if state.data[i][0] == state.data[i][1] == state.data[i][2] == "X" or state.data[0][i] == state.data[1][i] == state.data[2][i] == "X":
+            return "X"
+
+        if state.data[i][0] == state.data[i][1] == state.data[i][2] == "O" or state.data[0][i] == state.data[1][i] == state.data[2][i] == "O":
+            return "O"
+
+    if state.data[0][0] == state.data[1][1] == state.data[2][2] == "X" or state.data[0][2] == state.data[1][1] == state.data[2][0] == "X":
+        return "X"
+
+    if state.data[0][0] == state.data[1][1] == state.data[2][2] == "O" or state.data[0][2] == state.data[1][1] == state.data[2][0] == "O":
+        return "O"
+
+    for i in range(3):
+        for j in range(3):
+            if state.data[i][j] is None:
+                return None
+
+    return "Draws"
+
+class Node(object):
+
+    data = [[None for x in range(3)] for y in range(3)]
+
+
+def AITreeChildren(root, MinMax):
+
+    if isGoal(root) == "X":
+        return 1
+
+    elif isGoal(root) == "O":
+        return -1
+
+    elif isGoal(root) == "Draws":
+        return 0
+
+    elif MinMax == "min":
+
+        min = math.inf
+
+        for i in range(3):
+            for j in range(3):
+                if root.data[i][j] is None:
+
+                    child = Node()
+
+                    child.data = root.data
+
+                    child.data[i][j] = "O"
+                    cost = AITreeChildren(child, "max")
+                    child.data[i][j] = None
+
+                    if cost < min:
+                        min = cost
+
+        return min
+
+    elif MinMax == "max":
+
+        max = -1 * math.inf
+
+        for i in range(3):
+            for j in range(3):
+                if root.data[i][j] is None:
+
+                    child = Node()
+
+                    child.data = root.data
+
+                    child.data[i][j] = "X"
+                    cost = AITreeChildren(child, "min")
+                    child.data[i][j] = None
+
+                    if cost > max:
+                        max = cost
+
+        return max
+
+def AITree(root):
+
+    min = math.inf
+
+    for i in range(3):
+        for j in range(3):
+            if root.data[i][j] is None:
+
+                child = Node()
+
+                child.data = root.data
+
+                child.data[i][j] = "O"
+                cost = AITreeChildren(child, "max")
+                child.data[i][j] = None
+
+                if cost < min:
+                    min = cost
+                    x, y = i, j
+    return x, y
+
+def startGame():
+
+    global ply
+    global winner
+
+    root = Node()
+
+    while winner == None:
+
+        if ply == "X":
+            x = input("input row: ")
+            y = input("input col: ")
+            x = int(x)
+            y = int(y)
+
+            while root.data[x][y] is not None:
+                print("Error")
+                x = input("input row: ")
+                y = input("input col: ")
+                x = int(x)
+                y = int(y)
+
+            root.data[x][y] = "X"
+
+            ply = "O"
+
+        elif ply == "O":
+            x, y = AITree(root)
+            root.data[x][y] = "O"
+            print(x," ",y)
+            ply = "X"
+
+        winner = isGoal(root)
+
+    print(winner)
+
+startGame()
