@@ -10,5 +10,5 @@ Size of game board is 3 * 3
 Try to win it  :)
 
 ### Future works
-[*] Add AI to Python version
-[] Add AI to C++ version
+- [x] Add AI to Python version
+- [ ] Add AI to C++ version
