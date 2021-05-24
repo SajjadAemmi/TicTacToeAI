@@ -1,7 +1,7 @@
 # TicTacToe-AI
 
 In this simple game you play TicTocToe with Artificial Intelligence
-- Web version written by JavaScript. Try it online https://sajjadaemmi.github.io/TicTacToe-AI/
+- Web version written by JavaScript. Try it online https://sajjadaemmi.github.io/TicTacToe-AI/JS_TicTacToe
 - CommandLine version written by Python
 - Qt version written by C++
 
