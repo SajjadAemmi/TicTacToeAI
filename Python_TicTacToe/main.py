@@ -4,7 +4,6 @@ ply = "X"
 winner = None
 
 def isGoal(state):
-
     for i in range(3):
         if state.data[i][0] == state.data[i][1] == state.data[i][2] == "X" or state.data[0][i] == state.data[1][i] == state.data[2][i] == "X":
             return "X"
@@ -25,9 +24,22 @@ def isGoal(state):
 
     return "Draws"
 
+def show_result(game):
+    for i in range(3):
+        for j in range(3):
+            if game.data[i][j] == None:
+                print('-',end='')
+            else:
+                print(game.data[i][j],end='')
+        print()
+        
+
+
+
+
 class Node(object):
 
-    data = [[None for x in range(3)] for y in range(3)]
+    data = [[None for _ in range(3)] for _ in range(3)]
 
 
 def AITreeChildren(root, MinMax):
@@ -114,17 +126,17 @@ def startGame():
     while winner == None:
 
         if ply == "X":
-            x = input("input row: ")
-            y = input("input col: ")
-            x = int(x)
-            y = int(y)
+            x = int(input("input row: "))
+            y = int(input("input col: "))
+            while x>2 or x<0 or y>2 or y<0 :
+                print("Error,enter row and col between 0 to 2")
+                x = int(input("input row: "))
+                y = int(input("input col: "))
 
-            while root.data[x][y] is not None:
-                print("Error")
-                x = input("input row: ")
-                y = input("input col: ")
-                x = int(x)
-                y = int(y)
+            while root.data[x][y] is not None  :
+                print("Error, this cell is full")
+                x = int(input("input row: "))
+                y = int(input("input col: "))
 
             root.data[x][y] = "X"
 
@@ -133,9 +145,9 @@ def startGame():
         elif ply == "O":
             x, y = AITree(root)
             root.data[x][y] = "O"
-            print(x," ",y)
+            print('PC turn : ')
             ply = "X"
-
+        show_result(root)
         winner = isGoal(root)
 
     print(winner)
