@@ -2,12 +2,12 @@
 
 In this simple game you play TicTocToe with Artificial Intelligence
 - Web version written by JavaScript. [Try it online](https://sajjadaemmi.github.io/TicTacToeAI/JS_TicTacToe)
-- CommandLine version written by Python
-- Qt version written by C++
+- CLI version written by Python
+- GUI version written by C++
 
 Size of game board is 3 * 3
 
-Try to win it  :)
+Try to win it :)
 
 ### Future works
 - [x] Add AI to Python version
